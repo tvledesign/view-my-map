@@ -363,15 +363,15 @@ main #share-link p:first-child {
     }
 
     main {
-        height: 500px;
+        height: 50vh;
     }
 
     #toolbar {
-        height: 50px;
+        height: initial;
     }
 
     aside {
-        height: 650px;
+        height: 100vh;
     }
 
     #toolbar .icons {
