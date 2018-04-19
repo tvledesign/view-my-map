@@ -42,7 +42,7 @@ Once your Facebook App has been configured and created the next thing you'd need
 
 When you've finished setting up everything copy your API key and edit the following files
 
-index.html on line 77 and map.html on line 70
+index.html on line 78 and map.html on line 71
 ```html
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 ```
