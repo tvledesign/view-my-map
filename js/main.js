@@ -321,10 +321,29 @@ function initFB() {
 function GetFBLocations() {
     FB.api("/" + userID + "/tagged_places", function (response) {
         if (response && !response.error) {
-            // push the current response data into 
-            // our object and go to the next page
-            places.push(response.data);
-            GetNextPage(response.paging.next);
+            // if there is data returned 
+            if(response.data != undefined && response.data[0] != undefined) {
+                // push the current response data into 
+                // our object and go to the next page
+                places.push(response.data);
+
+                // if there is a next page
+                if(response.paging.next != undefined)
+                    GetNextPage(response.paging.next);
+                else
+                    // print out our locations
+                    PrintLocations();
+            } else {
+                // hide all loading screens
+                $('.loading').hide();
+
+                // fade out the overlay
+                $('.overlay').fadeOut();
+
+                // inform the user they have no checked in data
+                $('#places-list .msg-before-auth').text('Uh-oh.. it looks like you have no checked-in data to pull from.');
+                $('#places-list .msg-before-auth').show();
+            }
         }
     });
 }
